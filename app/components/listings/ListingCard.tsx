@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 
 import { SafeListing, SafeUser } from '@/app/types'
-import { Listing, Reservation } from '@prisma/client'
+import { Reservation } from '@prisma/client'
 
 import useCountries from '@/app/hooks/useCountries'
 import { useCallback, useMemo } from 'react'
@@ -94,7 +94,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
         </div>
         <div className='flex flex-row items-center gap-1'>
           <div className='font-semibold'>
-            $ {price}
+            ${price}
           </div>
           {!reservation && (
             <div className='font-light'>night</div>
