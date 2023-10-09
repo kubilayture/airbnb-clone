@@ -4,7 +4,6 @@ import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 
 import { SafeListing, SafeReservation, SafeUser } from '@/app/types'
-import { Reservation } from '@prisma/client'
 
 import useCountries from '@/app/hooks/useCountries'
 import { useCallback, useMemo } from 'react'
@@ -36,16 +35,15 @@ const ListingCard: React.FC<ListingCardProps> = ({
 
   const location = getByValue(data.locationValue)
 
-  const handleCancel = useCallback(() => {
-    (e: React.MouseEvent<HTMLButtonElement>) => {
-      e.stopPropagation()
+  const handleCancel = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation()
 
-      if (disabled) {
-        return
-      }
-
-      onAction?.(actionId)
+    if (disabled) {
+      return
     }
+
+    onAction?.(actionId)
+
   }, [onAction, actionId, disabled])
 
   const price = useMemo(() => {
